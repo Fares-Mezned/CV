@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fares Mezned — CS Undergraduate &amp; Full-Stack Engineer</title>
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Fares Mezned, Pre-Engineering Computer Science student at MedTech (SMU) and Webmaster of the IEEE Computer Society SMU Chapter. Web architectures, registration workflows, ESP32 IoT telemetry, and automation.">
+  <meta property="og:title" content="Fares Mezned — CS Undergraduate &amp; Full-Stack Engineer">
+  <meta property="og:description" content="IEEE CS SMU Webmaster. Web platforms, registration workflows, automation bots, and ESP32 IoT telemetry.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%230A0806' stroke='%238C6D4F' stroke-width='2'/%3E%3Ctext x='32' y='43' font-size='26' font-weight='700' text-anchor='middle' fill='%23D4AF37' font-family='Georgia,serif'%3EFM%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo:wght@600;700;800&family=Herr+Von+Muellerhoff&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-to">Skip to main content</a>
+  <div class="progress-line" aria-hidden="true"></div>
+  <canvas id="webgl-bg" aria-hidden="true"></canvas>
+  <div class="studio-glow studio-glow--a" aria-hidden="true"></div>
+  <div class="studio-glow studio-glow--b" aria-hidden="true"></div>
+
+  <!-- EDITORIAL COMMAND NAVBAR -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-bar">
+      <a href="index.html" class="nav-brand" aria-label="Fares Mezned Home">FARES.</a>
+      <ul class="nav-links">
+        <li class="nav-glider" aria-hidden="true"></li>
+        <li class="nav-item">
+          <div class="nav-link-row">
+            <a href="index.html" class="nav-primary active" aria-current="page"><span class="nav-idx" aria-hidden="true">01</span><span class="nav-text" data-i18n="nav.home">Home</span></a>
+            <button type="button" class="sub-toggle" aria-label="Home sub-menu" aria-expanded="false"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+          <div class="nav-submenu" role="menu">
+            <a href="index.html#hero" role="menuitem"><span data-i18n="sub.hero">Studio Hero</span> <span class="tag">01</span></a>
+            <a href="index.html#overview" role="menuitem"><span data-i18n="sub.overview">Track Record</span> <span class="tag">02</span></a>
+            <a href="index.html#spotlight" role="menuitem"><span data-i18n="sub.spotlight">Featured Domains</span> <span class="tag">03</span></a>
+            <a href="index.html#connect" role="menuitem"><span data-i18n="sub.connect">Direct Dispatch</span> <span class="tag">04</span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link-row">
+            <a href="about.html" class="nav-primary"><span class="nav-idx" aria-hidden="true">02</span><span class="nav-text" data-i18n="nav.about">About</span></a>
+            <button type="button" class="sub-toggle" aria-label="About sub-menu" aria-expanded="false"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+          <div class="nav-submenu" role="menu">
+            <a href="about.html#bio" role="menuitem"><span data-i18n="sub.bio">Biography &amp; Portrait</span> <span class="tag">BIO</span></a>
+            <a href="about.html#objective" role="menuitem"><span data-i18n="sub.obj">Career Objective</span> <span class="tag">GOAL</span></a>
+            <a href="about.html#skills" role="menuitem"><span data-i18n="sub.skills">Bento Stack &amp; 3D</span> <span class="tag">MATRIX</span></a>
+            <a href="about.html#education" role="menuitem"><span data-i18n="sub.ed">Education &amp; IEEE</span> <span class="tag">ROUTE</span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link-row">
+            <a href="projects.html" class="nav-primary"><span class="nav-idx" aria-hidden="true">03</span><span class="nav-text" data-i18n="nav.projects">Projects</span></a>
+            <button type="button" class="sub-toggle" aria-label="Projects sub-menu" aria-expanded="false"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+          <div class="nav-submenu" role="menu">
+            <a href="projects.html#all" role="menuitem"><span data-i18n="sub.all">All Builds (ScrollStack)</span> <span class="tag">10</span></a>
+            <a href="projects.html#web" role="menuitem"><span data-i18n="sub.web">Web &amp; CI/CD</span> <span class="tag">WEB</span></a>
+            <a href="projects.html#iot" role="menuitem"><span data-i18n="sub.iot">IoT &amp; Desktop</span> <span class="tag">ESP32</span></a>
+            <a href="projects.html#auto" role="menuitem"><span data-i18n="sub.auto">Automation &amp; Bots</span> <span class="tag">BOTS</span></a>
+            <a href="projects.html#comp" role="menuitem"><span data-i18n="sub.comp">Competitions &amp; Apps</span> <span class="tag">COMP</span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link-row">
+            <a href="contact.html" class="nav-primary"><span class="nav-idx" aria-hidden="true">04</span><span class="nav-text" data-i18n="nav.contact">Contact</span></a>
+            <button type="button" class="sub-toggle" aria-label="Contact sub-menu" aria-expanded="false"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+          <div class="nav-submenu" role="menu">
+            <a href="contact.html#direct" role="menuitem"><span data-i18n="sub.mail">Direct Mail &amp; CV</span> <span class="tag">MAIL</span></a>
+            <a href="contact.html#terminal" role="menuitem"><span data-i18n="sub.cli">Workstation CLI</span> <span class="tag">BASH</span></a>
+          </div>
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <a href="contact.html" class="nav-cta" data-i18n="nav.cta">Let&apos;s Talk &#8599;</a>
+        <div class="nav-tools">
+          <div class="lang-pill" role="group" aria-label="Language">
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+            <button type="button" class="lang-btn" data-lang="fr" aria-pressed="false">FR</button>
+            <button type="button" class="lang-btn" data-lang="ar" aria-pressed="false" lang="ar">عربي</button>
+          </div>
+        </div>
+        <button type="button" class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false"><span class="ham-bars" aria-hidden="true"><i></i><i></i></span><span class="mob-label">MENU</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-drawer" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html" class="m-main active"><span data-i18n="nav.home">Home</span> <span class="label">01</span></a>
+    <a href="about.html" class="m-main"><span data-i18n="nav.about">About</span> <span class="label">02</span></a>
+    <div class="mobile-sub-links">
+      <a href="about.html#bio" data-i18n="sub.bio">Bio &amp; Portrait</a>
+      <a href="about.html#skills" data-i18n="sub.skills">Tech Matrix</a>
+      <a href="about.html#education" data-i18n="sub.ed">Milestones</a>
+    </div>
+    <a href="projects.html" class="m-main"><span data-i18n="nav.projects">Projects</span> <span class="label">03</span></a>
+    <div class="mobile-sub-links">
+      <a href="projects.html#web" data-i18n="sub.web">Web</a>
+      <a href="projects.html#iot" data-i18n="sub.iot">IoT</a>
+      <a href="projects.html#auto" data-i18n="sub.auto">Bots</a>
+      <a href="projects.html#comp" data-i18n="sub.comp">Competitions</a>
+    </div>
+    <a href="contact.html" class="m-main"><span data-i18n="nav.contact">Contact</span> <span class="label">04</span></a>
+    <div class="mobile-sub-links">
+      <a href="contact.html#direct" data-i18n="sub.mail">Mail</a>
+      <a href="contact.html#terminal" data-i18n="sub.cli">CLI</a>
+    </div>
+    <div class="mobile-tools">
+      <div class="lang-pill" role="group" aria-label="Language">
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" class="lang-btn" data-lang="fr" aria-pressed="false">FR</button>
+        <button type="button" class="lang-btn" data-lang="ar" aria-pressed="false" lang="ar">عربي</button>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" tabindex="-1">
+
+    <!-- ========== 01. STUDIO VIDEO HERO (EXACT HERONSECTION REPLICA) ========== -->
+    <section class="studio-hero" id="hero" aria-label="Studio Hero">
+      <div class="hero-video-stage" aria-hidden="true">
+        <video id="hero-video" autoplay muted loop playsinline preload="auto">
+          <source src="videos/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-blend-left"></div>
+        <div class="hero-watermark">
+          <div class="hero-watermark-halo"></div>
+          <div class="hero-watermark-float">
+            <img src="assets/watermark.png" alt="Engineering Insignia" class="hero-watermark-img" width="128" height="128">
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <div class="hero-row">
+          <div class="hero-main reveal-stagger is-visible">
+            <h1 class="hero-display">
+              <span class="metallic-chrome" data-i18n="hero.l1">I BUILD</span>
+              <span class="metallic-gold" data-i18n="hero.l2">DIGITAL</span>
+              <span class="metallic-bronze" data-i18n="hero.l3">SYSTEMS.</span>
+            </h1>
+
+            <p class="hero-role" data-i18n="hero.role">
+              CS AT MEDTECH (SMU) · IEEE CS WEBMASTER · IEEEXTREME TOP 2 WORLDWIDE
+            </p>
+
+            <p class="hero-lead" data-i18n="hero.sub">
+              Sophomore Pre-Engineering Computer Science undergraduate architecting full-stack web infrastructure, automated event pipelines, Python bots, and ESP32 IoT telemetry.
+            </p>
+
+            <div class="hero-ctas">
+              <a href="projects.html" class="btn btn--gold" data-i18n="hero.btn.projects">EXPLORE MY WORK &#8599;</a>
+              <a href="about.html" class="btn btn--outline" data-i18n="hero.btn.about">PROFILE &amp; RESUME &darr;</a>
+            </div>
+          </div>
+
+          <aside class="quote-lockup reveal reveal--right" aria-label="Engineering craft philosophy">
+            <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+            <div class="quote-lines">
+              <p data-i18n="hero.q1">CODE IS MY CRAFT.</p>
+              <p data-i18n="hero.q2">IMPACT IS MY GOAL.</p>
+            </div>
+            <div class="quote-rule" aria-hidden="true"></div>
+            <div class="script-sig quote-sig">Fares Mezned</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 02. ABOUT PREVIEW + 3D HOLOGRAPHIC PORTRAIT ========== -->
+    <section class="chapter" id="overview">
+      <div class="wrap">
+        <div class="eyebrow-row reveal reveal--left">
+          <span class="eyebrow" data-i18n="ov.label">01 / ABOUT ME</span>
+          <span class="eyebrow-line" aria-hidden="true"></span>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <h2 class="section-title reveal" style="font-size:clamp(2.6rem,5.2vw,4.9rem);margin-bottom:var(--sp-5);">
+              <span class="metallic-chrome" data-i18n="ov.h1">I DON&apos;T JUST STUDY CODE.</span>
+              <span class="metallic-gold" data-i18n="ov.h2">I SHIP SYSTEMS.</span>
+            </h2>
+
+            <p class="reveal" data-i18n="ov.sub">
+              I&apos;m Fares Mezned, a Sophomore Pre-Engineering Computer Science student at MedTech (South Mediterranean University / SMU) with a Tunisian Baccalauréat Technique. Since 2026, I serve as Webmaster for the IEEE Computer Society SMU Chapter at cs-smu.ieee.tn while shipping embedded ESP32 telemetry and Python automation systems.
+            </p>
+
+            <div class="stats-grid reveal">
+              <div class="stat-cell">
+                <span class="number">Top 2</span>
+                <span class="caption" data-i18n="ov.s1">IEEEXtreme PreXtreme Worldwide</span>
+              </div>
+              <div class="stat-cell">
+                <span class="number">2026</span>
+                <span class="caption" data-i18n="ov.s2">IEEE CS SMU Webmaster</span>
+              </div>
+              <div class="stat-cell">
+                <span class="number">2030</span>
+                <span class="caption" data-i18n="ov.s3">Expected MedTech Graduation</span>
+              </div>
+              <div class="stat-cell">
+                <span class="number">3</span>
+                <span class="caption" data-i18n="ov.s4">Arabic, French &amp; English</span>
+              </div>
+            </div>
+
+            <div class="reveal" style="margin-top:var(--sp-6);display:flex;gap:14px;flex-wrap:wrap;">
+              <a href="about.html" class="btn btn--gold" data-i18n="ov.cta">FULL BIOGRAPHY &amp; TECH MATRIX &rarr;</a>
+              <a href="about.html#education" class="btn btn--outline" data-i18n="ov.edcta">EXPERIENCE TIMELINE &darr;</a>
+            </div>
+          </div>
+
+          <aside class="portrait-aside">
+            <div class="portrait-halo" aria-hidden="true"></div>
+            <span class="portrait-ember portrait-ember--a" aria-hidden="true"></span>
+            <span class="portrait-ember portrait-ember--b" aria-hidden="true"></span>
+            <div class="portrait-stage monolith reveal"
+                 role="button"
+                 tabindex="0"
+                 aria-pressed="false"
+                 aria-label="Studio portrait of Fares Mezned. Hover or click for holographic lighting reveal."
+                 title="Hover or click to toggle spotlight intensity">
+              <span class="corner-l corner-l--tl" aria-hidden="true"></span>
+              <span class="corner-l corner-l--tr" aria-hidden="true"></span>
+              <span class="corner-l corner-l--bl" aria-hidden="true"></span>
+              <span class="corner-l corner-l--br" aria-hidden="true"></span>
+
+              <div class="portrait-canvas-box">
+                <img src="fares-studio.jpg" alt="Studio portrait of Fares Mezned in a black blazer and ivory shirt" class="portrait-base" width="841" height="1024">
+                <div class="portrait-spotlight" aria-hidden="true"></div>
+                <div class="portrait-laser" aria-hidden="true"></div>
+                <div class="portrait-vignette" aria-hidden="true"></div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 03. CURATED SPOTLIGHT DOMAINS ========== -->
+    <section class="chapter" id="spotlight">
+      <div class="wrap">
+        <div class="eyebrow-row reveal reveal--left">
+          <span class="eyebrow" data-i18n="spot.label">02 / SELECTED DOMAINS</span>
+          <span class="eyebrow-line" aria-hidden="true"></span>
+        </div>
+
+        <h2 class="section-title reveal" style="margin-bottom:var(--sp-6);">
+          <span class="metallic-chrome" data-i18n="spot.h1">CORE PILLARS</span>
+          <span class="metallic-gold" data-i18n="spot.h2">IN PRODUCTION.</span>
+        </h2>
+
+        <div class="featured-grid">
+          <article class="monolith corner-brackets reveal">
+            <div class="top-flare" aria-hidden="true"></div>
+            <span class="corner-l corner-l--tl" aria-hidden="true"></span>
+            <span class="corner-l corner-l--tr" aria-hidden="true"></span>
+            <span class="corner-l corner-l--bl" aria-hidden="true"></span>
+            <span class="corner-l corner-l--br" aria-hidden="true"></span>
+            <span class="watermark-num" aria-hidden="true">01</span>
+
+            <div class="project-split">
+              <div class="project-main-col">
+                <div class="project-meta-head">
+                  <span class="project-num">01 //</span>
+                  <span class="project-cat" data-i18n="spot.p1.tag">WEB ARCHITECTURE &amp; CI/CD</span>
+                </div>
+                <h3 data-i18n="spot.p1.title">IEEE CS SMU Website &amp; Event Pipelines</h3>
+                <p class="desc" data-i18n="spot.p1.desc">End-to-end architecture and continuous deployment of cs-smu.ieee.tn alongside automated registration workflows for hackathons and bootcamps.</p>
+                <div class="tech-row">
+                  <span class="tech-pill">HTML5 / CSS3</span><span class="tech-pill">JavaScript</span><span class="tech-pill">FastAPI</span><span class="tech-pill">GitHub CI/CD</span>
+                </div>
+              </div>
+              <div class="project-metrics-col">
+                <div class="metric-box"><span class="mk">DOMAIN</span><span class="mv">cs-smu.ieee.tn</span></div>
+                <div class="metric-box"><span class="mk">MANDATE</span><span class="mv">Webmaster (2026+)</span></div>
+                <a href="projects.html#web" class="btn btn--gold" style="margin-top:6px;">INSPECT WEB STACK &#8599;</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="monolith corner-brackets reveal">
+            <div class="top-flare" aria-hidden="true"></div>
+            <span class="corner-l corner-l--tl" aria-hidden="true"></span>
+            <span class="corner-l corner-l--tr" aria-hidden="true"></span>
+            <span class="corner-l corner-l--bl" aria-hidden="true"></span>
+            <span class="corner-l corner-l--br" aria-hidden="true"></span>
+            <span class="watermark-num" aria-hidden="true">02</span>
+
+            <div class="project-split">
+              <div class="project-main-col">
+                <div class="project-meta-head">
+                  <span class="project-num">02 //</span>
+                  <span class="project-cat" data-i18n="spot.p2.tag">EMBEDDED C++ &amp; TELEMETRY</span>
+                </div>
+                <h3 data-i18n="spot.p2.title">ESP32 IoT Telemetry System</h3>
+                <p class="desc" data-i18n="spot.p2.desc">Embedded firmware sampling voltage, ACS712 current, calculated power, cumulative energy, and temperature streamed in real time to Firebase Realtime Database.</p>
+                <div class="tech-row">
+                  <span class="tech-pill">C++ / Arduino IDE</span><span class="tech-pill">ESP32</span><span class="tech-pill">ACS712</span><span class="tech-pill">Firebase RTDB</span>
+                </div>
+              </div>
+              <div class="project-metrics-col">
+                <div class="metric-box"><span class="mk">SENSING</span><span class="mv">Voltage · Current · Temp</span></div>
+                <div class="metric-box"><span class="mk">CLOUD</span><span class="mv">Firebase RTDB Sync</span></div>
+                <a href="projects.html#iot" class="btn btn--gold" style="margin-top:6px;">INSPECT HARDWARE &#8599;</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="monolith corner-brackets reveal">
+            <div class="top-flare" aria-hidden="true"></div>
+            <span class="corner-l corner-l--tl" aria-hidden="true"></span>
+            <span class="corner-l corner-l--tr" aria-hidden="true"></span>
+            <span class="corner-l corner-l--bl" aria-hidden="true"></span>
+            <span class="corner-l corner-l--br" aria-hidden="true"></span>
+            <span class="watermark-num" aria-hidden="true">03</span>
+
+            <div class="project-split">
+              <div class="project-main-col">
+                <div class="project-meta-head">
+                  <span class="project-num">03 //</span>
+                  <span class="project-cat" data-i18n="spot.p3.tag">AUTOMATION &amp; COMPETITIVE BUILDS</span>
+                </div>
+                <h3 data-i18n="spot.p3.title">Playwright Bot, Discord Systems &amp; Team TinkyWinky</h3>
+                <p class="desc" data-i18n="spot.p3.desc">Browser automation with Playwright, CLI file sorters, role-gated Discord utilities, Fantasy Tunisia League in React Native, and Team TinkyWinky.</p>
+                <div class="tech-row">
+                  <span class="tech-pill">Python 3.14</span><span class="tech-pill">Playwright</span><span class="tech-pill">React Native</span><span class="tech-pill">Netlify &amp; DNS</span>
+                </div>
+              </div>
+              <div class="project-metrics-col">
+                <div class="metric-box"><span class="mk">ARCHIVE</span><span class="mv">10 Builds + Demos</span></div>
+                <div class="metric-box"><span class="mk">TEAM SITE</span><span class="mv">tinkywinky.tn</span></div>
+                <a href="projects.html" class="btn btn--gold" style="margin-top:6px;" data-i18n="spot.cta">OPEN SCROLLSTACK DECK &#8599;</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 03B. EXPERIENCE & MILESTONES (ExperienceSection.tsx replica) ========== -->
+    <section class="chapter" id="experience">
+      <div class="wrap" style="max-width:860px;">
+        <div class="eyebrow-row reveal reveal--left">
+          <span class="eyebrow" data-i18n="exp.label">03 / EXPERIENCE</span>
+          <span class="eyebrow-line" aria-hidden="true"></span>
+        </div>
+
+        <h2 class="section-title reveal" style="margin-bottom:var(--sp-6);">
+          <span class="metallic-chrome" data-i18n="exp.h1">EXPERIENCE &amp;</span>
+          <span class="metallic-gold" data-i18n="exp.h2">MILESTONES.</span>
+        </h2>
+
+        <div class="timeline">
+          <div class="tl-spine-fill" aria-hidden="true"></div>
+
+          <div class="cred-row reveal reveal--left" style="--rv-delay:80ms;">
+            <div class="cred-year" data-i18n="exp.r1.y">2026 – PRESENT</div>
+            <span class="cred-node" aria-hidden="true"><span class="cred-node-ring"></span></span>
+            <div class="cred-body">
+              <h3 data-i18n="exp.r1.t">WEBMASTER — IEEE COMPUTER SOCIETY SMU</h3>
+              <span class="institution" data-i18n="exp.r1.o">IEEE SMU STUDENT BRANCH · CS-SMU.IEEE.TN</span>
+              <p data-i18n="exp.r1.d">Full-stack architecture of cs-smu.ieee.tn, automated hackathon &amp; bootcamp registration pipelines, DNS configuration, and GitHub CI/CD workflows.</p>
+            </div>
+          </div>
+
+          <div class="cred-row reveal reveal--left" style="--rv-delay:160ms;">
+            <div class="cred-year" data-i18n="exp.r2.y">RECOGNITION</div>
+            <span class="cred-node" aria-hidden="true"><span class="cred-node-ring"></span></span>
+            <div class="cred-body">
+              <h3 data-i18n="exp.r2.t">TOP 2 WORLDWIDE — IEEEXTREME PREXTREME</h3>
+              <span class="institution" data-i18n="exp.r2.o">COMPETITIVE PROGRAMMING &amp; TEAM TINKYWINKY</span>
+              <p data-i18n="exp.r2.d">Global Top 2 finish in IEEEXtreme PreXtreme alongside competitive hackathons with Team TinkyWinky (tinkywinky.tn) and NOSTOS — The Xenia Protocol.</p>
+            </div>
+          </div>
+
+          <div class="cred-row reveal reveal--left" style="--rv-delay:240ms;">
+            <div class="cred-year" data-i18n="exp.r3.y">2025 – 2030</div>
+            <span class="cred-node" aria-hidden="true"><span class="cred-node-ring"></span></span>
+            <div class="cred-body">
+              <h3 data-i18n="exp.r3.t">PRE-ENGINEERING MEDTECH</h3>
+              <span class="institution" data-i18n="exp.r3.o">MEDTECH (SOUTH MEDITERRANEAN UNIVERSITY / SMU) · TUNIS</span>
+              <p data-i18n="exp.r3.d">Coursework in Data Structures &amp; Algorithms, Object-Oriented Programming, Database Systems, Web Engineering, and Embedded C++ / ESP32 IoT systems.</p>
+            </div>
+          </div>
+
+          <div class="cred-row reveal reveal--left" style="--rv-delay:320ms;">
+            <div class="cred-year" data-i18n="exp.r4.y">FOUNDATION</div>
+            <span class="cred-node" aria-hidden="true"><span class="cred-node-ring"></span></span>
+            <div class="cred-body">
+              <h3 data-i18n="exp.r4.t">TECHNOLOGICAL BACCALAUREATE</h3>
+              <span class="institution" data-i18n="exp.r4.o">TUNISIAN NATIONAL TRACK</span>
+              <p data-i18n="exp.r4.d">Practical grounding in electrical circuitry, applied physics, mechanical engineering fundamentals, and structured technical problem solving.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal" style="margin-top:var(--sp-6);">
+          <a href="about.html#skills" class="btn btn--outline" data-i18n="exp.cta">EXPLORE TECH MATRIX &amp; 3D SKILLS &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 04. DIRECT TRANSMISSION PORTAL ========== -->
+    <section class="chapter" id="connect">
+      <div class="wrap">
+        <div class="eyebrow-row reveal reveal--left">
+          <span class="eyebrow" data-i18n="conn.label">04 / CONTACT</span>
+          <span class="eyebrow-line" aria-hidden="true"></span>
+        </div>
+
+        <h2 class="section-title reveal" style="margin-bottom:var(--sp-5);">
+          <span class="metallic-chrome" data-i18n="conn.h1">INITIALIZE</span>
+          <span class="metallic-gold" data-i18n="conn.h2">TRANSMISSION.</span>
+        </h2>
+
+        <div class="monolith corner-brackets reveal">
+          <div class="top-flare" aria-hidden="true"></div>
+          <span class="corner-l corner-l--tl" aria-hidden="true"></span>
+          <span class="corner-l corner-l--tr" aria-hidden="true"></span>
+          <span class="corner-l corner-l--bl" aria-hidden="true"></span>
+          <span class="corner-l corner-l--br" aria-hidden="true"></span>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;">
+            <div>
+              <span class="label" style="display:block;margin-bottom:6px;">// PRIMARY CHANNEL</span>
+              <span class="contact-email">faresmezned8@gmail.com</span>
+            </div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+              <button type="button" id="copy-email-btn" data-email="faresmezned8@gmail.com" class="btn btn--outline" data-i18n="conn.copy">COPY EMAIL</button>
+              <a href="contact.html" class="btn btn--gold" data-i18n="conn.cta">OPEN UNIX TERMINAL &amp; PRINT CV &#8599;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="wrap">
+      <div class="footer-row">
+        <div class="footer-col">
+          <h5 data-i18n="foot.pages">Pages</h5>
+          <ul>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About &amp; Portrait</a></li>
+            <li><a href="projects.html" data-i18n="nav.projects">Projects ScrollStack</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact &amp; CLI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="foot.ext">External</h5>
+          <ul>
+            <li><a href="https://github.com/Fares-Mezned" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/fares-mezned-3a17b237a" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://cs-smu.ieee.tn" target="_blank" rel="noopener">cs-smu.ieee.tn</a></li>
+            <li><a href="https://tinkywinky.tn" target="_blank" rel="noopener">tinkywinky.tn</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="foot.mail">Direct Mail</h5>
+          <ul>
+            <li><a href="mailto:faresmezned8@gmail.com">faresmezned8@gmail.com</a></li>
+            <li><a href="mailto:fares.mezned@medtech.tn">fares.mezned@medtech.tn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="foot.note">Fares Mezned · Tunis, Tunisia · MedTech (SMU) Class of 2030.</span>
+        <span data-i18n="foot.ai">Built with assistance from generative AI tools (Google DeepMind Antigravity / Anthropic Claude).</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

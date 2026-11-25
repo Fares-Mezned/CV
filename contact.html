@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact &amp; Terminal — Fares Mezned | CS Undergraduate</title>
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Contact Fares Mezned, print a clean ATS/academic CV sheet, and run commands inside the Obsidian UNIX workstation terminal (including Snake and Matrix mode).">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%230A0806' stroke='%238C6D4F' stroke-width='2'/%3E%3Ctext x='32' y='43' font-size='26' font-weight='700' text-anchor='middle' fill='%23D4AF37' font-family='Georgia,serif'%3EFM%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cairo:wght@600;700;800&family=Herr+Von+Muellerhoff&family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-to">Skip to main content</a>
+  <div class="progress-line" aria-hidden="true"></div>
+  <canvas id="webgl-bg" aria-hidden="true"></canvas>
+  <div class="studio-glow studio-glow--a" aria-hidden="true"></div>
+  <div class="studio-glow studio-glow--b" aria-hidden="true"></div>
+
+  <!-- EDITORIAL COMMAND NAVBAR -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-bar">
+      <a href="index.html" class="nav-brand" aria-label="Fares Mezned Home">FARES.</a>
+      <ul class="nav-links">
+        <li class="nav-glider" aria-hidden="true"></li>
+        <li class="nav-item">
+          <div class="nav-link-row">
+            <a href="index.html" class="nav-primary"><span class="nav-idx" aria-hidden="true">01</span><span class="nav-text" data-i18n="nav.home">Home</span></a>
+            <button type="button" class="sub-toggle" aria-label="Home sub-menu" aria-expanded="false"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+          <div class="nav-submenu" role="menu">
+            <a href="index.html#hero" role="menuitem"><span data-i18n="sub.hero">Studio Hero</span> <span class="tag">01</span></a>
+            <a href="index.html#overview" role="menuitem"><span data-i18n="sub.overview">Track Record</span> <span class="tag">02</span></a>
+            <a href="index.html#spotlight" role="menuitem"><span data-i18n="sub.spotlight">Featured Domains</span> <span class="tag">03</span></a>
+            <a href="index.html#connect" role="menuitem"><span data-i18n="sub.connect">Direct Dispatch</span> <span class="tag">04</span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link-row">
+            <a href="about.html" class="nav-primary"><span class="nav-idx" aria-hidden="true">02</span><span class="nav-text" data-i18n="nav.about">About</span></a>
+            <button type="button" class="sub-toggle" aria-label="About sub-menu" aria-expanded="false"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+          <div class="nav-submenu" role="menu">
+            <a href="about.html#bio" role="menuitem"><span data-i18n="sub.bio">Biography &amp; Portrait</span> <span class="tag">BIO</span></a>
+            <a href="about.html#objective" role="menuitem"><span data-i18n="sub.obj">Career Objective</span> <span class="tag">GOAL</span></a>
+            <a href="about.html#skills" role="menuitem"><span data-i18n="sub.skills">Bento Stack &amp; 3D</span> <span class="tag">MATRIX</span></a>
+            <a href="about.html#education" role="menuitem"><span data-i18n="sub.ed">Education &amp; IEEE</span> <span class="tag">ROUTE</span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link-row">
+            <a href="projects.html" class="nav-primary"><span class="nav-idx" aria-hidden="true">03</span><span class="nav-text" data-i18n="nav.projects">Projects</span></a>
+            <button type="button" class="sub-toggle" aria-label="Projects sub-menu" aria-expanded="false"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+          <div class="nav-submenu" role="menu">
+            <a href="projects.html#all" role="menuitem"><span data-i18n="sub.all">All Builds (ScrollStack)</span> <span class="tag">10</span></a>
+            <a href="projects.html#web" role="menuitem"><span data-i18n="sub.web">Web &amp; CI/CD</span> <span class="tag">WEB</span></a>
+            <a href="projects.html#iot" role="menuitem"><span data-i18n="sub.iot">IoT &amp; Desktop</span> <span class="tag">ESP32</span></a>
+            <a href="projects.html#auto" role="menuitem"><span data-i18n="sub.auto">Automation &amp; Bots</span> <span class="tag">BOTS</span></a>
+            <a href="projects.html#comp" role="menuitem"><span data-i18n="sub.comp">Competitions &amp; Apps</span> <span class="tag">COMP</span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link-row">
+            <a href="contact.html" class="nav-primary active" aria-current="page"><span class="nav-idx" aria-hidden="true">04</span><span class="nav-text" data-i18n="nav.contact">Contact</span></a>
+            <button type="button" class="sub-toggle" aria-label="Contact sub-menu" aria-expanded="false"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5L5 6.5L8 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+          <div class="nav-submenu" role="menu">
+            <a href="contact.html#direct" role="menuitem"><span data-i18n="sub.mail">Direct Mail &amp; CV</span> <span class="tag">MAIL</span></a>
+            <a href="contact.html#terminal" role="menuitem"><span data-i18n="sub.cli">Workstation CLI</span> <span class="tag">BASH</span></a>
+          </div>
+        </li>
+      </ul>
+      <div class="nav-actions">
+        <a href="contact.html" class="nav-cta" data-i18n="nav.cta">Let&apos;s Talk &#8599;</a>
+        <div class="nav-tools">
+          <div class="lang-pill" role="group" aria-label="Language">
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+            <button type="button" class="lang-btn" data-lang="fr" aria-pressed="false">FR</button>
+            <button type="button" class="lang-btn" data-lang="ar" aria-pressed="false" lang="ar">عربي</button>
+          </div>
+        </div>
+        <button type="button" class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false"><span class="ham-bars" aria-hidden="true"><i></i><i></i></span><span class="mob-label">MENU</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-drawer" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html" class="m-main"><span data-i18n="nav.home">Home</span> <span class="label">01</span></a>
+    <a href="about.html" class="m-main"><span data-i18n="nav.about">About</span> <span class="label">02</span></a>
+    <a href="projects.html" class="m-main"><span data-i18n="nav.projects">Projects</span> <span class="label">03</span></a>
+    <a href="contact.html" class="m-main active"><span data-i18n="nav.contact">Contact</span> <span class="label">04</span></a>
+    <div class="mobile-sub-links">
+      <a href="#direct" data-i18n="sub.mail">Direct Mail</a>
+      <a href="#terminal" data-i18n="sub.cli">Terminal</a>
+    </div>
+    <div class="mobile-tools">
+      <div class="lang-pill" role="group" aria-label="Language">
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" class="lang-btn" data-lang="fr" aria-pressed="false">FR</button>
+        <button type="button" class="lang-btn" data-lang="ar" aria-pressed="false" lang="ar">عربي</button>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" tabindex="-1">
+
+    <!-- HEADER -->
+    <section class="page-header">
+      <canvas class="header-canvas" aria-hidden="true"></canvas>
+      <div class="wrap" style="position:relative;z-index:1;">
+        <div class="eyebrow-row reveal" style="margin-bottom:var(--sp-3);">
+          <span class="eyebrow" data-i18n="ct.tag">04 / CONTACT &amp; WORKSTATION</span>
+          <span class="eyebrow-line" aria-hidden="true"></span>
+        </div>
+        <h1 class="section-title reveal" style="margin-bottom:var(--sp-4);">
+          <span class="metallic-chrome" data-i18n="ct.title1">INITIALIZE</span>
+          <span class="metallic-gold" data-i18n="ct.title2">TRANSMISSION.</span>
+        </h1>
+        <p class="body-lg reveal" data-i18n="ct.sub">
+          Write directly, print a clean ATS/academic CV summary, or query the interactive UNIX workstation shell below.
+        </p>
+      </div>
+      <div class="header-scanline" aria-hidden="true"></div>
+    </section>
+
+    <section class="chapter" id="direct">
+      <div class="wrap">
+        <div class="contact-grid">
+
+          <div class="monolith corner-brackets reveal">
+            <div class="top-flare" aria-hidden="true"></div>
+            <span class="corner-l corner-l--tl" aria-hidden="true"></span>
+            <span class="corner-l corner-l--tr" aria-hidden="true"></span>
+            <span class="corner-l corner-l--bl" aria-hidden="true"></span>
+            <span class="corner-l corner-l--br" aria-hidden="true"></span>
+
+            <span class="label" style="display:block;margin-bottom:8px;" data-i18n="ct.card.label">// CHANNELS</span>
+            <h2 style="font-size:clamp(2rem,3.2vw,2.8rem);margin-bottom:10px;" data-i18n="ct.card.title">DIRECT DISPATCH</h2>
+            <p style="font:300 13.5px / 1.75 'Montserrat', sans-serif;color:var(--ink-2);" data-i18n="ct.card.sub">
+              Open to software engineering internships, full-stack web builds, embedded systems work, and IEEE Computer Society SMU initiatives.
+            </p>
+
+            <div class="contact-email-block">
+              <div>
+                <span class="label label--muted" style="display:block;margin-bottom:4px;">PRIMARY EMAIL</span>
+                <span class="contact-email">faresmezned8@gmail.com</span>
+              </div>
+              <button type="button" id="copy-email-btn" data-email="faresmezned8@gmail.com" class="btn btn--outline" style="padding:9px 15px;" data-i18n="conn.copy">COPY EMAIL</button>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:10px;margin:var(--sp-4) 0 var(--sp-5);font-size:13.5px;">
+              <div><strong style="color:var(--gold-hi);font-weight:500;">Academic Email:</strong> <a href="mailto:fares.mezned@medtech.tn" class="inline-link">fares.mezned@medtech.tn</a></div>
+              <div><strong style="color:var(--gold-hi);font-weight:500;">Location:</strong> <span style="color:var(--ink-2);">Tunis, Tunisia (GMT+1)</span></div>
+              <div><strong style="color:var(--gold-hi);font-weight:500;">Chapter Mandate:</strong> <span style="color:var(--ink-2);">Webmaster · IEEE CS SMU (since 2026)</span></div>
+              <div><strong style="color:var(--gold-hi);font-weight:500;">GitHub:</strong> <a href="https://github.com/Fares-Mezned" target="_blank" rel="noopener" class="inline-link">github.com/Fares-Mezned</a></div>
+              <div><strong style="color:var(--gold-hi);font-weight:500;">LinkedIn:</strong> <a href="https://linkedin.com/in/fares-mezned-3a17b237a" target="_blank" rel="noopener" class="inline-link">linkedin.com/in/fares-mezned-3a17b237a</a></div>
+            </div>
+
+            <div style="display:flex;gap:12px;flex-wrap:wrap;padding-top:var(--sp-4);border-top:1px solid var(--border);">
+              <a href="mailto:faresmezned8@gmail.com?subject=Inquiry%20via%20Portfolio" class="btn btn--gold" data-i18n="ct.send">SEND EMAIL &#8599;</a>
+              <button type="button" onclick="window.print()" class="btn btn--outline" data-i18n="ct.print">PRINT CV [PDF] &darr;</button>
+            </div>
+          </div>
+
+          <div id="terminal" class="terminal corner-brackets reveal reveal--right" aria-label="Interactive UNIX Workstation Terminal">
+            <div class="top-flare" aria-hidden="true"></div>
+            <span class="corner-l corner-l--tl" aria-hidden="true"></span>
+            <span class="corner-l corner-l--tr" aria-hidden="true"></span>
+            <span class="corner-l corner-l--bl" aria-hidden="true"></span>
+            <span class="corner-l corner-l--br" aria-hidden="true"></span>
+
+            <div class="terminal-top">
+              <div class="terminal-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+              <span class="terminal-label">bash — fares@medtech-smu:~</span>
+              <span class="label" style="font-size:9.5px;">ONLINE</span>
+            </div>
+            <div class="terminal-screen" id="term-screen" role="log" aria-live="polite">
+              <div class="terminal-line term-out">Fares Mezned UNIX Workstation Shell</div>
+              <div class="terminal-line term-out">Type a command below (or click any quick chip): <strong style="color:var(--gold-hi)">help</strong>, <strong style="color:var(--gold-hi)">snake</strong>, <strong style="color:var(--gold-hi)">matrix</strong>, <strong style="color:var(--gold-hi)">cv</strong>.</div>
+              <div class="terminal-line term-out" style="color:var(--bronze)">--------------------------------------------</div>
+            </div>
+            <div class="terminal-chips" aria-label="Quick terminal commands">
+              <button type="button" class="term-chip" data-cmd="whoami">whoami</button>
+              <button type="button" class="term-chip" data-cmd="about">about</button>
+              <button type="button" class="term-chip" data-cmd="skills">skills</button>
+              <button type="button" class="term-chip" data-cmd="projects">projects</button>
+              <button type="button" class="term-chip" data-cmd="mandate">mandate</button>
+              <button type="button" class="term-chip" data-cmd="contact">contact</button>
+              <button type="button" class="term-chip" data-cmd="matrix">matrix</button>
+              <button type="button" class="term-chip" data-cmd="snake">snake</button>
+              <button type="button" class="term-chip" data-cmd="clear">clear</button>
+            </div>
+            <form id="term-form" class="terminal-input-row" autocomplete="off">
+              <span class="term-prompt">fares@medtech:~$</span>
+              <input type="text" id="term-input" placeholder="enter command (up/down for history)..." aria-label="Terminal command input" spellcheck="false">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PRINT-ONLY ATS/ACADEMIC CV SHEET -->
+  <div id="cv-print" aria-hidden="true">
+    <h1>Fares Mezned</h1>
+    <p>Computer Science Undergraduate — MedTech (SMU) · Webmaster, IEEE Computer Society SMU Chapter</p>
+    <p>Tunis, Tunisia · faresmezned8@gmail.com · fares.mezned@medtech.tn · github.com/Fares-Mezned · linkedin.com/in/fares-mezned-3a17b237a</p>
+    <h2>Career Objective</h2>
+    <p>Looking ahead, my goal is to grow into a software and full-stack web engineer, building reliable, accessible, and user-focused web systems and software products.</p>
+    <h2>Leadership &amp; Engineering Experience</h2>
+    <ul>
+      <li><strong>Webmaster, IEEE Computer Society SMU Chapter (2026–Present):</strong> Full-stack architecture of cs-smu.ieee.tn, hackathon/bootcamp registration workflows, and GitHub CI/CD pipelines.</li>
+      <li><strong>Top 2 Worldwide — IEEEXtreme PreXtreme:</strong> Placed Top 2 globally in competitive algorithmic programming; active builder in Team TinkyWinky (tinkywinky.tn) and NOSTOS — The Xenia Protocol.</li>
+    </ul>
+    <h2>Selected Projects</h2>
+    <ul>
+      <li><strong>ESP32 IoT Telemetry System (C++ &amp; Firebase RTDB):</strong> Voltage, ACS712 current, power, energy consumption, and temperature sensing streamed live to Firebase.</li>
+      <li><strong>GTA VI Launch Fund:</strong> Multi-currency desktop savings tracker built with Python &amp; HTML (TND, EUR, USD).</li>
+      <li><strong>Playwright Automation &amp; Offer Bot:</strong> Automated offer submission and auto-reply system with Python &amp; dashboard UI.</li>
+      <li><strong>Downloads Sorter (sort.py) &amp; Discord Bot Utilities:</strong> Python CLI file automation and role-based Discord permission gating.</li>
+      <li><strong>Fantasy Tunisia League (FTL):</strong> Web and mobile sports management application in React Native.</li>
+    </ul>
+    <h2>Education &amp; Languages</h2>
+    <p>MedTech (South Mediterranean University), Tunis — Pre-Engineering Computer Science (Expected 2030) · Baccalauréat Technique (Technical Sciences).</p>
+    <p>Languages: Arabic (Native), French (Professional), English (Professional). Interests: Saltwater spinning fishing, competitive gaming.</p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="wrap">
+      <div class="footer-row">
+        <div class="footer-col">
+          <h5 data-i18n="foot.pages">Pages</h5>
+          <ul>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About &amp; Portrait</a></li>
+            <li><a href="projects.html" data-i18n="nav.projects">Projects ScrollStack</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact &amp; CLI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="foot.ext">External</h5>
+          <ul>
+            <li><a href="https://github.com/Fares-Mezned" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/fares-mezned-3a17b237a" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://cs-smu.ieee.tn" target="_blank" rel="noopener">cs-smu.ieee.tn</a></li>
+            <li><a href="https://tinkywinky.tn" target="_blank" rel="noopener">tinkywinky.tn</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="foot.mail">Direct Mail</h5>
+          <ul>
+            <li><a href="mailto:faresmezned8@gmail.com">faresmezned8@gmail.com</a></li>
+            <li><a href="mailto:fares.mezned@medtech.tn">fares.mezned@medtech.tn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="foot.note">Fares Mezned · Tunis, Tunisia · MedTech (SMU) Class of 2030.</span>
+        <span data-i18n="foot.ai">Built with assistance from generative AI tools (Google DeepMind Antigravity / Anthropic Claude).</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
